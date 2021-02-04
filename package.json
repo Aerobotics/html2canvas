@@ -6,14 +6,14 @@
   "module": "dist/html2canvas.esm.js",
   "typings": "dist/types/index.d.ts",
   "browser": "dist/html2canvas.js",
-  "version": "v1.0.0-rc.9-aero",
+  "version": "v1.0.0-rc.10-aero",
   "files": [
+    "dist/types/*",
     "dist/html2canvas.esm.js",
     "dist/html2canvas.esm.js.map",
     "dist/html2canvas.min.js",
     "dist/html2canvas.js",
-    "dist/html2canvas.js.map",
-    "dist/types/index.d.ts"
+    "dist/html2canvas.js.map"
   ],
   "author": {
     "name": "Niklas von Hertzen",
