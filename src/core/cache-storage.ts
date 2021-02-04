@@ -65,6 +65,7 @@ export interface ResourceOptions {
     imageTimeout: number;
     useCORS: boolean;
     allowTaint: boolean;
+    customiseImageRequest?: (img: HTMLImageElement, src: string) => [HTMLImageElement, string];
     proxy?: string;
 }
 
@@ -121,12 +122,15 @@ export class Cache {
         Logger.getInstance(this.id).debug(`Added image ${key.substring(0, 256)}`);
 
         return await new Promise((resolve, reject) => {
-            const img = new Image();
+            let img = new Image();
             img.onload = () => resolve(img);
             img.onerror = reject;
             //ios safari 10.3 taints canvas with data urls unless crossOrigin is set to anonymous
             if (isInlineBase64Image(src) || useCORS) {
                 img.crossOrigin = 'anonymous';
+            }
+            if (this._options.customiseImageRequest) {
+                [img, src] = this._options.customiseImageRequest(img, src);
             }
             img.src = src;
             if (img.complete === true) {
