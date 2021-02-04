@@ -6,7 +6,15 @@
   "module": "dist/html2canvas.esm.js",
   "typings": "dist/types/index.d.ts",
   "browser": "dist/html2canvas.js",
-  "version": "1.0.0-rc.7",
+  "version": "1.0.0",
+  "files": [
+    "dist/html2canvas.esm.js",
+    "dist/html2canvas.esm.js.map",
+    "dist/html2canvas.min.js",
+    "dist/html2canvas.js",
+    "dist/html2canvas.js.map",
+    "dist/types/index.d.ts"
+  ],
   "author": {
     "name": "Niklas von Hertzen",
     "email": "niklasvh@gmail.com",
@@ -106,7 +114,8 @@
     "karma": "node karma",
     "watch": "rollup -c rollup.config.ts -w",
     "watch:unittest": "mocha --require ts-node/register --watch-extensions ts -w src/**/__tests__/*.ts",
-    "start": "node tests/server"
+    "start": "node tests/server",
+    "prepare": "npm run build"
   },
   "homepage": "https://html2canvas.hertzen.com",
   "license": "MIT",
